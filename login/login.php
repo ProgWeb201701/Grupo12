@@ -6,6 +6,7 @@ $nome = $_POST['nome'];
 $senha = $_POST['senha'];
 
 
+
 if ($nome == 'amanda' && $senha == '12345' ){
 
 	#se o nome estiver correto, começa a sessão
