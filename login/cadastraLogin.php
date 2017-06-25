@@ -1,12 +1,32 @@
 <?php 
 
 $login = $_POST['login'];
-$senha = MD5($_POST['senha']);
+$senha = $_POST['senha'];
+$nome = $_POST['nome'];
+$email = $_POST['email'];
 
-$connect = mysql_connect('localhost','root','1030');
-$db = mysql_select_db('nome_do_banco_de_dados');
-$query_select = "SELECT login FROM usuarios WHERE login = '$login'";
-$select = mysql_query($query_select,$connect);
+
+
+
+$servername = "localhost";
+$username = "root";
+$password = "1030";
+$dbname = "revistaart";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+ 
+
+
+
+
+
+$query_select = "SELECT nomUsuario FROM usuario WHERE nomUsuario = '$login'";
+
 $array = mysql_fetch_array($select);
 $logarray = $array['login'];
 
@@ -20,7 +40,8 @@ $logarray = $array['login'];
         die();
 
       }else{
-        $query = "INSERT INTO usuarios (login,senha) VALUES ('$login','$senha')";
+        // (`nome`, `idUsuario`, `nomUsuario`, `senha`, `email`)
+        $query = "INSERT INTO usuario (nome,idUsuario,nomUsuario,senha,email) VALUES ('nome',AUTO_INCREMENT,'$login','$senha','email')";
         $insert = mysql_query($query,$connect);
         
         if($insert){

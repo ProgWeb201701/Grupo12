@@ -18,7 +18,7 @@
                 echo "<a href='sair.php'>Sair</a>";
                 } else {
                    	#sessão não existe
-                    echo "<a href='inscricao.html'>Login</a>";
+                    echo "<a href='login.html'>Login</a>";
             }
 
             #Fim do php, e volta para HTML
@@ -30,6 +30,8 @@
               	#a mesma coisa, porém, agora exibe mensagens para o usuário
                 if (isset($_SESSION["nome"])) {
                     echo "Bem-vindo(a) ".$_SESSION["nome"];
+                    
+                    
                 } else {
                     echo "Faça login ";
                 }
