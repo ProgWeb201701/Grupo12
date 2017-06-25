@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <meta charset="utf-8">
     <head>
         <title>Inicio</title>
     </head>
@@ -23,14 +24,14 @@
             #Fim do php, e volta para HTML
         ?>
 
-s
+
         <h1>
             <?php
               	#a mesma coisa, porém, agora exibe mensagens para o usuário
                 if (isset($_SESSION["nome"])) {
                     echo "Bem-vindo(a) ".$_SESSION["nome"];
                 } else {
-                    echo "faça login ";
+                    echo "Faça login ";
                 }
             ?>
         </h1>
