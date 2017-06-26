@@ -4,7 +4,7 @@
 <title> Cadastro de Usuário </title>
 </head>
 <body>
-<form method="POST" action="cadastro.php">
+<form method="POST" action="cadastrando.php">
 <label>Nome:</label><input type="text" name="nome" id="nome"><br>
 <label>Nome de Usuário:</label><input type="text" name="nomUsuario" id="nomUsuario"><br>
 <label>Email:</label><input type="text" name="email" id="email"><br>
