@@ -13,42 +13,24 @@ $username = "root";
 $password = "123";
 $dbname = "revistaart";
 
-// Create connection
+// Create connection com o  banco
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
- 
+     $sql = "INSERT INTO usuario (nome,nomUsuario,senha,email)
+            VALUES ('$nome','$login','$senha','$email')";
 
-
-
-
-
-$query_select = "SELECT nomUsuario FROM usuario WHERE nomUsuario = '$login'";
-
-$array = mysql_fetch_array($select);
-$logarray = $array['login'];
-
-  if($login == "" || $login == null){
-    echo"<script language='javascript' type='text/javascript'>alert('O campo login deve ser preenchido');window.location.href='cadastro.html';</script>";
-
-    }else{
-      if($logarray == $login){
-
-        echo"<script language='javascript' type='text/javascript'>alert('Esse login já existe');window.location.href='cadastro.html';</script>";
-        die();
-
-      }else{
-        // (`nome`, `idUsuario`, `nomUsuario`, `senha`, `email`)
-        $query = "INSERT INTO usuario (nome,idUsuario,nomUsuario,senha,email) VALUES ('nome',AUTO_INCREMENT,'$login','$senha','email')";
-        $insert = mysql_query($query,$connect);
+if ($conn->query($sql) === TRUE) {
+    echo "<br><br>";
+    echo "Usuario Cadastrado com Sucesso!!!";
+   
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
         
-        if($insert){
-          echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='login.html'</script>";
-        }else{
-          echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='cadastro.html'</script>";
-        }
+        
       }
     }
 ?>

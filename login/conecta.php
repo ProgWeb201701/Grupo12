@@ -24,21 +24,53 @@ if ($conn->connect_error) {
 } 
  
 
- //Consulta o banco e mostra os usuarios
-$sql = "SELECT nome, idUsuario, nomUsuario FROM usuario";
-$result = $conn->query($sql);
+//  //Consulta o banco e mostra os usuarios
+// $sql = "SELECT nome, idUsuario, nomUsuario FROM usuario";
+// $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    // output data of each row
+// if ($result->num_rows > 0) {
+//     // output data of each row
 
-    while($row = $result->fetch_assoc()) {
-       echo "<br><br>";
-        echo "Nome: " . $row["nome"]. "   <br>     -     IdUsu: " . $row["idUsuario"]. "  -  <br> Usuário :" . $row["nomUsuario"]. "<br><br>";
+//     while($row = $result->fetch_assoc()) {
+//        echo "<br><br>";
+//         echo "Nome: " . $row["nome"]. "   <br>     -     IdUsu: " . $row["idUsuario"]. "  -  <br> Usuário :" . $row["nomUsuario"]. "<br><br>";
          
-    }
-} else {
-    echo "0 results";
-}
+//     }
+// } else {
+//     echo "0 results";
+// }
+//nada importante
+  // $query = "INSERT INTO usuario (nome,idUsuario,nomUsuario,senha,email) VALUES ('stela',9,'stella','123','stell@gmail.com')";
+  //       $insert = mysql_query($query,$connect)
+
+
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
+$nomUsuario = $_POST['login'];
+ 
+
+
+
+//Insere um usuário no banco 
+$sql = "INSERT INTO usuario (nome,nomUsuario,senha,email)
+ VALUES ('$nome','$nomUsuario','$senha','$senha')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "<br><br>";
+    echo "Usuario Cadastrado com Sucesso!!!";
+     }
+
+    else {
+     echo "Error: " . $sql . "<br>" . $conn->error;
+ }
+
+
+
+
+
+
+
 
 
 
