@@ -25,20 +25,20 @@ if ($conn->connect_error) {
  
 
  //Consulta o banco e mostra os usuarios
-$sql = "SELECT nome, idUsuario, nomUsuario FROM usuario";
-$result = $conn->query($sql);
+// $sql = "SELECT nome, idUsuario, nomUsuario FROM usuario";
+// $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+// if ($result->num_rows > 0) {
     // output data of each row
 
-    while($row = $result->fetch_assoc()) {
-       echo "<br><br>";
-        echo "Nome: " . $row["nome"]. "   <br>     -     IdUsu: " . $row["idUsuario"]. "  -  <br> Usuário :" . $row["nomUsuario"]. "<br><br>";
+//     while($row = $result->fetch_assoc()) {
+//        echo "<br><br>";
+//         echo "Nome: " . $row["nome"]. "   <br>     -     IdUsu: " . $row["idUsuario"]. "  -  <br> Usuário :" . $row["nomUsuario"]. "<br><br>";
          
-    }
-} else {
-    echo "0 results";
-}
+//     }
+// } else {
+//     echo "0 results";
+// }
 
 
 
@@ -68,46 +68,52 @@ if ($result->num_rows > 0) {
 
 
 
-
+$nomePost = $_POST['nomePost'];
+$descricao = $_POST['descricao'];
+$CaminhoImagem = $_POST['CaminhoImagem'];
+$idTag = $_POST['Tag'];
 
 
 
 //Insere Um post no Banco de Dados (Ainda está com problemas)
-// $sql = "INSERT INTO post ( nomePost, descricao, idUsuario,CaminhoImagem,idTag)
-// VALUES ('Amanda', 'Leoa',1,'c:/amanda/Kobus','3')";
+$sql = "INSERT INTO post ( nomePost, descricao,idUsuario,CaminhoImagem,idTag)
+VALUES ('$nomePost', '$descricao',3,'$CaminhoImagem','2')";
 
-// if ($conn->query($sql) === TRUE) {
-//     echo "Post Criado com sucesso";
-// } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-// }
+if ($conn->query($sql) === TRUE) {
+    echo "Post Criado com sucesso";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+
 
 
 
 
 
 //Consulta o banco e mostra todos os posts existentes no banco
-//     $sql = "SELECT idPost, nomePost, descricao, idUsuario,CaminhoImagem,idTag FROM post";
-// $result = mysqli_query($conn, $sql);
+    $sql = "SELECT idPost, nomePost, descricao, idUsuario,CaminhoImagem,idTag FROM post";
+$result = mysqli_query($conn, $sql);
 
-// if (mysqli_num_rows($result) > 0) {
-//     // output data of each row
-//     while($row = mysqli_fetch_assoc($result)) {
-//         echo "<br><br>";
-//         echo "idPost: " . $row["idPost"];
-//           echo "<br><br>";
-//         echo "Titulo:".$row["nomePost"];
-//           echo "<br><br>";
-//         echo "Descricao:".$row["descricao"];
-//           echo "<br><br>";
-//         echo "CaminhoImagem: " . $row["CaminhoImagem"]."--------idTag--".$row["idTag"];
-//          echo "<br><br>";
-//          echo "-------------------------------------------------------------------------------------";
-//          echo "<br><br>";
-//     }
-// } else {
-//     echo "Nenhum  Post encontrado";
-// }
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "<br><br>";
+        echo "idPost: " . $row["idPost"];
+          echo "<br><br>";
+        echo "Titulo:".$row["nomePost"];
+          echo "<br><br>";
+        echo "Descricao:".$row["descricao"];
+          echo "<br><br>";
+        echo "CaminhoImagem: " . $row["CaminhoImagem"]."--------idTag--".$row["idTag"];
+         echo "<br><br>";
+         echo "-------------------------------------------------------------------------------------";
+         echo "<br><br>";
+    }
+} else {
+    echo "Nenhum  Post encontrado";
+}
 
 
 
