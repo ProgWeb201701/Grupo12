@@ -15,7 +15,7 @@ $senha = $_POST['senha'];
 
 $servername = "localhost";
 $username = "root";
-$password = "123";
+$password = "1030";
 $dbname = "revistaart";
 
 // Create connection

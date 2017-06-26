@@ -303,7 +303,7 @@ function closeNav() {
             </form>  
           
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"><a href="#myCadastro"></a>Cadastrar-se
+          <button type="button" class="btn btn-default" data-dismiss="modal">fechar
         </div></button>
         </div>
       </div>
@@ -323,7 +323,7 @@ function closeNav() {
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content"  >
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Cadastre-se</h4>
@@ -331,13 +331,15 @@ function closeNav() {
          <h2>Cadastro </h2>
         <div class="modal-body"> Mostre seu ponto de vista faça POSTS</p>
           <form action="cadastraLogin.php" method="POST">
+
+
                
-                <input type="text" placeholder="Nome" name="nome" autofocus/><br><br>
-                <input type="text" placeholder="Nome de Usuário" name="nomUsuario" autofocus/><br><br>
-                <input type="email" placeholder="email" name="email" autofocus/><br><br>
-                <input type="password" placeholder="Senha" name="senha" /><br><br>
-                <!-- <input type="submit" value="entrar" id="entrar" name="Enviar"><br> -->
-                 <button type="button" class="btn btn-default" data-dismiss="modal"><a href="#myCadastro"></a>Enviar</button>
+                <input type="text" placeholder="Nome" value="" name="nome" required="Preencha com seu nome completo" autofocus/><br><br>
+                <input type="text" placeholder="Nome de Usuário" name="login" required="Preencha o nome de Usuário" autofocus/><br><br>
+                <input type="email" placeholder="email" name="email"  required="Preencha o seu email" autofocus/><br><br>
+                <input type="password" placeholder="Senha" name="senha"  required="Preencha a sua senha" /><br><br>
+                <input type="submit" value="entrar"  id="entrar" name="Enviar"><br>
+                <!--  <button type="button" class="btn btn-default" data-dismiss="modal"><a href="#myCadastro"></a>Enviar</button> -->
             </form>  
           
         </div>
@@ -359,7 +361,7 @@ function closeNav() {
 
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   <h1 class="w3-center">Revista de Art</h1>
-  <p class="w3-center" class="introducao"><em><b>Cadastra-se e divulgue seu trabalho.<br> Inspire novas ideias</b></em></p><br>
+  <p class="w3-center" class="introducao"><em><b>Cadastre-se e divulgue seu trabalho.<br> Inspire novas ideias</b></em></p><br>
 
 <!-- <b></b> -->
 <div class="jumbotron">
