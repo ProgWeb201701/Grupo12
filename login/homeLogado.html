@@ -72,54 +72,7 @@
 
 
 
-/*
-body {
-    font-family: "Lato", sans-serif;
-}
 
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}*/
   </style>
 
 
@@ -129,14 +82,15 @@ body {
   <script>
 
 
-// Modal Image Gallery
-// function onClick(element) {
-//   document.getElementById("img01").src = element.src;
-//   document.getElementById("modal01").style.display = "block";
-//   var captionText = document.getElementById("caption");
-//   captionText.innerHTML = element.alt;
-// }
 
+    $(document).ready(function(e){
+    	//da maneira que voces fizeram tem um evento que o BOOTSTRAP inicia que pode usar para carregar o html
+    	//é algo parecido com isso, ai os dados ali
+    	$("#myDestaque").on("show.bs.modal", function(event){
+    		var modal = $("#myDestaque");
+    		modal.find(".modal-body").load("./htmlinternodomodal.html", dados);
+    	});
+    })
 
 </script>
 
@@ -158,7 +112,14 @@ body {
    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myLogin">Seus Posts</button>
   </div>
   <div class="btn-group" role="group">
-   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myDestaque">Destaques</button>
+
+   <!-- aqui tem q passar o id do usuario e dai la no modal buscar os posts e mostrar, eu n faria, eu faria uma pagina e carregaria cada post
+   em um modal, mas como faz aqui faz em um pagina separado, então vou mostrar e dai vocês tentam ai  -->
+   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="destaque">
+   Destaques</a></button>
+
+
+
   </div>
   <div class="btn-group" role="group">
    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#sair">Sair</button>
@@ -172,64 +133,18 @@ body {
 
 
 
-<!-- <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div> -->
 
 
 
 
 
   
-  <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span> -->
+ 
 </div>
 
 
 
 
-<!-- 
-<script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
-</script> -->
-
-
-
-
-
-
-<!-- <div class="container"> -->
-<!-- </div> -->
-  <!-- Trigger the modal with a button -->
-<!--   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Criar Post</button>
-
-<form class="navbar-form navbar-left" role="search">
- 
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Posts, nome.....">
-  </div>
-  <button type="submit" class="btn btn-default">Buscar</button> -->
-<!--    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Criar Post</button> -->
-<!--   <button type="button" class="btn btn-default navbar-btn" ><a href="login.html">Login</a></button>
-
-</form> -->
-
-
-
-
-
-  
 
 
 
@@ -250,35 +165,24 @@ function closeNav() {
          <!--  <p>Crie seu post</p> -->
 
           <div class="text-center">
-        <form   action="conecta.php">
-          
-               <img src="quadrado.png" class="rounded" alt="..."  width="300" height="300">
+		<form action="conecta.php">
+			<img src="quadrado.png" class="rounded" alt="..."  width="300" height="300">
           </div>
-          
           <label>Titulo: <input type="text" class="form-control" name="titulo"  size="140" placeholder="Titulo" aria-describedby="sizing-addon1"></label>
           <!-- Split button -->
 
           <label>Descrição:<!-- <input type="text-field" name="descricao"   style="WIDTH: 228px;size=32; HEIGHT: 98px" > --></label>          <input type="text" class="form-control" placeholder="Descrição" name="descricao" aria-describedby="sizing-addon1">
-        <!--    <div class="btn-group">
-           <label   >Tag(Categoria):</label>
-                <select class="form-control" id="sel1" name="tag">
-                   <option id="1" value="1">Arte</option>
-                    <option id="2" value="2">Moda</option>
-                    <option id="3" value="3">Criatividade</option>
-                     <option id="4" value="4">Culinária</option>
-               </select>
-              </div><br><br> -->
               <br>
               <div id="tag">
-              <button type="button" value="1" class="btn btn-outline-success">Arte</button>
-              <button type="button"  value="2"  class="btn btn-outline-success">Moda</button>
-                <button type="button" value="3" class="btn btn-outline-success">Fotografia</button>
-              <button type="button"  value="4" class="btn btn-outline-success">Novidade</button>
-               <button type="button" value="5" class="btn btn-outline-success">Musica</button>
-              <button type="button"  value="6"  class="btn btn-outline-success">Gastronomia</button>
+	              <button type="button" value="1" class="btn btn-outline-success">Arte</button>
+	              <button type="button"  value="2"  class="btn btn-outline-success">Moda</button>
+	              <button type="button" value="3" class="btn btn-outline-success">Fotografia</button>
+	              <button type="button"  value="4" class="btn btn-outline-success">Novidade</button>
+	              <button type="button" value="5" class="btn btn-outline-success">Musica</button>
+	              <button type="button"  value="6"  class="btn btn-outline-success">Gastronomia</button>
               </div>
               <br><br>
-          <label>Selecione uma Imagem: <input type="file" name="img"></label><br><br>
+          	<label>Selecione uma Imagem: <input type="file" name="img"></label><br><br>
             <button type="submit" value="entrar" id="entrar" name="Entrar">Criar</button><br>
 
 
@@ -288,9 +192,8 @@ function closeNav() {
         </form>
         </div>
        
-        <div class="modal-footer">
-      
-    <!--       <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button> -->
+        <div class="modal-footer">      
+    	<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button> -->
         </div>
       </div>
       
@@ -315,14 +218,16 @@ function closeNav() {
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Destaques do Dia</h4>
         </div>
-        <div class="modal-body">
-          <p>Tag do Dia : Natureza</p>
+        <div class="modal-body" id="dados">
+        <!--   <p>Tag do Dia : Natureza</p>
           <img src="./imagens/1.jpg" class="img-rounded" alt="..." width="500" height="180">
           <h1>Titulo</h1>
          <p>ppppppppppppppppppppppppppppppppppppppppppppppppppppppp</p> 
           <p>ppppppppppppppppppppppppppppppppppppppppppppppppppppppp</p> 
           <p>ppppppppppppppppppppppppppppppppppppppppppppppppppppppp</p> 
-          <p>ppppppppppppppppppppppppppppppppppppppppppppppppppppppp</p>  
+          <p>ppppppppppppppppppppppppppppppppppppppppppppppppppppppp</p>  --> 
+
+
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Like</button>
         </div>
@@ -409,102 +314,7 @@ function closeNav() {
   <p class="w3-center" class="introducao"><em><b>Cadastra-se e divulgue seu trabalho.<br> Inspire novas ideias</b></em></p><br>
 
 
-<!-- <div class="container">
 
-<div class="row">
-   
-    <div class=".col-12">
-      <form class="navbar-form navbar-left" role="search">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="nome post, tag, autor ....">
-  </div>
-  <button type="submit" class="btn btn-default">Buscar</button>
-</form>
-    </div>
-    
-  </div>
-   </div> -->
-<!-- <b></b> -->
-<!-- <div class="jumbotron"  >
- 
-  <p> <img src="./imagens/1.jpg"  class="img-rounded" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Criar"></p>
-   <h2 style="text-align: center;">Post destaque da página</h2>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-</div>
- -->
-
-
-<!-- <div class="row"> --> <!-- 4 + 8 = 12 -->
-<!--     <div class="col-md-4"> 
-              <div class="thumbnail">
-      <img src="./imagens/1.jpg" alt="...">
-      <div class="caption">
-        <h3>Post</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Leia</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-
-
-    </div>
-    <div class="col-md-4">
-                  <div class="thumbnail">
-      <img src="./imagens/1.jpg" alt="...">
-      <div class="caption">
-        <h3>Post</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Leia</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-     </div> 
-      <div class="col-md-4"> 
-                  <div class="thumbnail">
-      <img src="./imagens/1.jpg" alt="...">
-      <div class="caption">
-        <h3>Post</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Leia</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-
-      </div> 
-</div> -->
-
- <!-- <div class="row"> --> <!-- 4 + 8 = 12 -->
-<!--     <div class="col-md-4"> 
-              <div class="thumbnail">
-      <img src="./imagens/1.jpg" alt="...">
-      <div class="caption">
-        <h3>Post</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Leia</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-
-
-    </div>
-    <div class="col-md-4">
-                  <div class="thumbnail">
-      <img src="./imagens/1.jpg" alt="...">
-      <div class="caption">
-        <h3>Post</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Leia</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-     </div> 
-      <div class="col-md-4"> 
-                  <div class="thumbnail">
-      <img src="./imagens/1.jpg" alt="...">
-      <div class="caption">
-        <h3>Post</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Leia</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-
-      </div> 
-</div> -->
 
   <div class="w3-row-padding w3-center">
    <div class="w3-col m3">
@@ -544,31 +354,6 @@ function closeNav() {
     <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">Carregar Posts</button>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <!-- <div class="w3-row-padding w3-center"> -->
   <!--   Aqui ficaria o post principal -->
     <!-- <div class="w3-col m12">
@@ -578,43 +363,7 @@ function closeNav() {
     <br><br> -->
 
   <!-- Posts menos visualizados -->
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 <!--  Rodapé do trabalho -->
   <footer class="footer">

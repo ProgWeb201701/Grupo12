@@ -26,7 +26,7 @@ $nomUsuario = $_POST['login'];
 
 //Insere um usuário no banco 
 $sql = "INSERT INTO usuario (nome,nomUsuario,senha,email)
- VALUES ('$nome','$nomUsuario','$senha','$senha')";
+ VALUES ('$nome','$nomUsuario','$senha','$email')";
 
 if ($conn->query($sql) === TRUE) {
     echo "<br><br>";

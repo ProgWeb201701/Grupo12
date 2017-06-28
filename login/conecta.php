@@ -10,6 +10,43 @@
 
 </head>
 <body>
+
+
+
+
+
+ <!-- Modal  fazer Login-->
+  <div class="modal fade" id="myLogin" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Seus Posts</h4>
+        </div>
+         <h2 style="text-align: center;">Seus posts </h2>
+        <div class="modal-body"> Crie mais posts, mostre aos outros seu ponto de vista</p>
+           
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><a href="#myCadastro"></a>Fechar
+        </div></button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -52,7 +89,7 @@ if ($conn->connect_error) {
 
 //Insere um usuário no banco 
 // $sql = "INSERT INTO usuario (nome,nomUsuario,senha,email)
-//  VALUES ('$nome','$nomUsuario','$senha','$senha')";
+//  VALUES ('$nome','$nomUsuario','$senha','$email')";
 
 // if ($conn->query($sql) === TRUE) {
 //     echo "<br><br>";
@@ -68,22 +105,22 @@ if ($conn->connect_error) {
 
 
 
-$nomePost = $_POST['nomePost'];
-$descricao = $_POST['descricao'];
-$CaminhoImagem = $_POST['CaminhoImagem'];
-$idTag = $_POST['Tag'];
+// $nomePost = $_POST['nomePost'];
+// $descricao = $_POST['descricao'];
+// $CaminhoImagem = $_POST['CaminhoImagem'];
+// $idTag = $_POST['Tag'];
 
 
 
 //Insere Um post no Banco de Dados (Ainda está com problemas)
-$sql = "INSERT INTO post ( nomePost, descricao,idUsuario,CaminhoImagem,idTag)
-VALUES ('$nomePost', '$descricao',3,'$CaminhoImagem','2')";
+// $sql = "INSERT INTO post ( nomePost, descricao,idUsuario,CaminhoImagem,idTag)
+// VALUES ('$nomePost', '$descricao',3,'$CaminhoImagem','2')";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Post Criado com sucesso";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+// if ($conn->query($sql) === TRUE) {
+//     echo "Post Criado com sucesso";
+// } else {
+//     echo "Error: " . $sql . "<br>" . $conn->error;
+// }
 
 
 
@@ -94,11 +131,17 @@ if ($conn->query($sql) === TRUE) {
 
 //Consulta o banco e mostra todos os posts existentes no banco
     $sql = "SELECT idPost, nomePost, descricao, idUsuario,CaminhoImagem,idTag FROM post";
-$result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
+
+
+
+
+
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
+
         echo "<br><br>";
         echo "idPost: " . $row["idPost"];
           echo "<br><br>";
@@ -114,6 +157,17 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "Nenhum  Post encontrado";
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -144,7 +198,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
 //Faz consulta no banco pelo titulo do post
-//     $sql = "SELECT idPost, nomePost, descricao, idUsuario,CaminhoImagem,idTag FROM post where nomePost = 'Desenho Realista'";
+//     $sql = "SELECT idPost, nomePost, descricao, idUsuario,CaminhoImagem,idTag FROM post where nomePost = 'nomePost'";
 // $result = mysqli_query($conn, $sql);
 
 // if (mysqli_num_rows($result) > 0) {

@@ -30,6 +30,10 @@
               	#a mesma coisa, porém, agora exibe mensagens para o usuário
                 if (isset($_SESSION["nome"])) {
                     echo "Bem-vindo(a) ".$_SESSION["nome"];
+                    //redireciona para a página de usuario logado no sistema
+                    header("Location:homeLogado.html");
+
+
                     
                     
                 } else {
