@@ -10,3 +10,4 @@ session_destroy();
 #header manda o usuário para outra página!
 // header("location: inicio.php");
 header("location: principal.html");
+?>

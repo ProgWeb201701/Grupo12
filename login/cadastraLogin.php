@@ -6,7 +6,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "123";
+$password = "1030";
 $dbname = "revistaart";
 
 // Create connection com o  banco

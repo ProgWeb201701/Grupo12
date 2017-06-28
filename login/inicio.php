@@ -37,6 +37,7 @@
                     
                     
                 } else {
+                     header("Location:principal.html");
                     echo "Faça login ";
                 }
             ?>
