@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_post">Criar Post</button>
+
+
+<div class="modal fade" id="modal_post" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form   action="./upload.php" method="post" enctype="multipart/form-data">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Criar Post
+                    </h4>
+                </div>
+                 
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-1 col-lg-2"></div>
+                        <div class="col-xs-12 col-md-10 col-lg-8">
+                            <div class="form-group">
+                           
+                               
+                                <label>Titulo: <input type="text" class="form-control" name="nomePost"  size="140" placeholder="Titulo" aria-describedby="sizing-addon1"></label>
+                                <label for="descricao"   class="control-label">Descrição</label>
+                                <textarea id="descricao"     name="descricao"class="form-control" rows="3" placeholder="Ex: Inspire-se crie seu post agora"></textarea>
+                            </div>
+                             <div class="form-group" id="idtag">
+                              <label><input type="radio"  id="idtag" value="1" name="tag">Moda</label>
+                       <label>      <input type="radio"  id="idtag"  value="2" name="tag">Arte</label>
+                          <label> <input type="radio"  id="idtag" value="3" name="tag">Desenho</label>
+                             <div>
+                            <div class="form-group" id="postImagem">
+                                <div >
+                                    <label for="imagem">Carregar imagem</label>
+                                    <input  type="file" name="fileToUpload" id="fileToUpload">
+                                    <!-- <p class="help-block">Faça upload de imagens .PNG ou .JPG com tamanho de 2mb no maximo!</p> -->
+                                </div>
+                            </div>
+                          
+                        </div>
+                        <div class="col-xs-12 col-md-1 col-lg-2"></div>
+                       </div>
+                </div><div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                              
+                               <input type="submit" value="Upload Image" name="submit">   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- <form action="./upload.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form> -->

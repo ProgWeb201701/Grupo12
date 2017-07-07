@@ -1,6 +1,5 @@
-<?php 
 
-
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "1030";
@@ -12,18 +11,20 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
+ 
 
+//if (isset($_POST['cadastrar'])) {
+	
+	// Recupera os dados dos campos
+	$tag = $_POST['idTag'];
+	$titulo = $_POST['nomePost'];
+	$foto = $_FILES["foto"];
+	$descricao = $_POST['descricao'];
+	//$idUsuario=$_SESSION['idUsuario'];
 
-if (isset($_POST['criar'])) {
-// Recupera os dados dos campos
-$nomePost = $_POST['nomePost'];
-$idUsuario=$_SESSION["idUsuario"];
-$descricao = $_POST['descricao'];
-$foto =$_FILES['CaminhoImagem'];
-$idTag = $_POST['idTag'];
-
-
-// Se a foto estiver sido selecionada
+	//die("$tag $titulo,$foto,$descricao,$idUsuario");
+	
+	// Se a foto estiver sido selecionada
 	if (!empty($foto["name"])) {
 		
 		// Largura máxima em pixels
@@ -74,54 +75,51 @@ $idTag = $_POST['idTag'];
 			move_uploaded_file($foto["tmp_name"], $caminho_imagem);
 		
 			// Insere os dados no banco
-		$sql = "INSERT INTO post ( nomePost, descricao,idUsuario,CaminhoImagem,idTag)
-			VALUES ('$nomePost', '$descricao','$idUsuario','$CaminhoImagem','idTag')";
-			die($sql);
-			if ($conn->query($sql) === TRUE) {
-   				 echo "Post Criado com sucesso";
-			} else {
-    			echo "Error: " . $sql . "<br>" . $conn->error;
-			}
-
+			// $sql = mysql_query("INSERT INTO post VALUES ( $titulo, $descricao, $idUsuario, $foto, $tag)");
+		
+			// Se os dados forem inseridos com sucesso
+			// if ($sql){
+			// 	echo "Você foi cadastrado com sucesso.";
+			// }
+		//}
 	
 		// Se houver mensagens de erro, exibe-as
-		if (count($error) != 0) {
-			foreach ($error as $erro) {
-				echo $erro . "<br />";
-			}
-		}
-	}
-}
+// 		if (count($error) != 0) {
+// 			foreach ($error as $erro) {
+// 				echo $erro . "<br />";
+// 			}
+// 		}
+// 	}
+// }
 ?>
 
-
-
-
-
-
-
-
-
-
-
-<?php
+<!-- <?php 
 // Seleciona todos os usuários
-$sql = mysql_query("SELECT * FROM post ORDER BY nomePost");
- 
-// Exibe as informações de cada usuário
-while ($post = mysql_fetch_object($sql)) {
-	//echo "<b>Tag:</b> " . $post->tag; . "<br />";
-	// Exibimos a foto
-	echo "<img src='fotos/".$post->foto."' alt='Foto de exibição' /><br />";
-	// Exibimos o nome e email
-	echo "<b>Nome:</b> " . $post->nomePost . "<br />";
-	echo "<b>Email:</b> " . $post->descricao . "<br /><br />";
-}
-?>
+//  $sql = "SELECT idPost, nomePost, descricao, idUsuario,CaminhoImagem,idTag FROM post";
+//     $result = mysqli_query($conn, $sql);
 
 
 
 
 
 
+// if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    // while($row = mysqli_fetch_assoc($result)) {
 
+    //     echo "<br><br>";
+    //     echo "idPost: " . $row["idPost"];
+    //       echo "<br><br>";
+    //     echo "Titulo:".$row["nomePost"];
+    //       echo "<br><br>";
+    //     echo "Descricao:".$row["descricao"];
+    //       echo "<br><br>";
+       // echo "CaminhoImagem: " . $row["CaminhoImagem"];
+        // echo "--------idTag--".$row["idTag"];
+         // echo "<br><br>";
+         // echo "-------------------------------------------------------------------------------------";
+         // echo "<br><br>";
+    // }
+// } else {
+    // echo "Nenhum  Post encontrado";
+// }

@@ -1,28 +1,3 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<head>
-	<title></title>
-		<meta charset="utf-8"/>
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-
-</head>
-<body>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php
 $servername = "localhost";
@@ -267,24 +242,5 @@ if (mysqli_num_rows($result) > 0) {
 // }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $conn->close();
 ?>
-
-</body>
-</html>
-
-

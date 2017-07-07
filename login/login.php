@@ -33,9 +33,7 @@ if ($conn->connect_error) {
       $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // output data of each row
-
-    while($row = $result->fetch_assoc()) {
+        while($row = $result->fetch_assoc()) {
        echo "<br><br>";
         echo "Nome: " . $row["nome"]. "   <br>     -     IdUsu: " . $row["idUsuario"]. "  -  <br> Usuário :" . $row["nomUsuario"]. "<br><br>";
         
@@ -44,6 +42,9 @@ if ($result->num_rows > 0) {
     # agora cria uma sessão que guardará o nome do usuário
     #( ele poderá navegar por todo o sistema sem que seja preciso perguntar seu nome novamente).
     $_SESSION["nome"]=$nome;
+    $_SESSION["idUsuario"]=$row["idUsuario"];
+
+
 
     #header manda o usuário para outra página!
     header("location: inicio.php");

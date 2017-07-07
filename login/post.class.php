@@ -18,47 +18,40 @@ class post
         $this->email = $email;
         $this->idUsuario = $idUsuario;
     }
-    function getNome() {
-        return $this->nome;
+    //pega os valores do post
+    public function getDescricao() {
+        return $this->descricao;
     }
 
-    function getNomeUsuario() {
-        return $this->nomeUsuario;
+    public function getImagen() {
+        return $this->imagem;
     }
 
-    function getSenha() {
-        return $this->senha;
+    public function isAutorId() {
+        return $this->autorId;
     }
 
-    function getEmail() {
-        return $this->email;
+//pega um usuario com base no id
+    public function get($id){ 
+        $sql = "SELECT `descricao`, `imagem`, `autorId`, `dataCriacao`, `ext`, `denuncias`, `likes` 
+                FROM `posts` 
+                WHERE `id` = '$id'";
+        $result = parent::executaQuery($sql);
+        $row = mysqli_fetch_object ( $result );
+        return $row;
     }
 
-    function getIdUsuario() {
-        return $this->idUsuario;
+    //função para deletar TODOS os post do usuario
+    public function delete($id) {
+        $sql = "delete from `posts` where `autorId` = '$id'"; 
+        return parent::executaQuery($sql);
     }
 
-    function setNome($nome) {
-        $this->nome = $nome;
+    //função para deletar UM post
+     public function deletePost($id) {
+        $sql = "delete from `posts` where `id` = '$id'"; 
+        return parent::executaQuery($sql);
     }
-
-    function setNomeUsuario($nomeUsuario) {
-        $this->nomeUsuario = $nomeUsuario;
-    }
-
-    function setSenha($senha) {
-        $this->senha = $senha;
-    }
-
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function setIdUsuario($idUsuario) {
-        $this->idUsuario = $idUsuario;
-    }
-
-
 
 }
 

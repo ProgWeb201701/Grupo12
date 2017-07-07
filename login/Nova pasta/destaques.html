@@ -8,20 +8,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="criarpost.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- -->
-
-   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <style type="text/css">
@@ -104,33 +95,58 @@
 
 
 
-<div class="btn-group btn-group-justified"  class="menu" role="group" id="menu" aria-label="...">
- <div class="btn-group" role="group">
-   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="homeLogado.html">Principal</a></button>
+<!-- <div class="btn-group btn-group-justified"  class="menu" role="group" id="menu" aria-label="...">
+  <div class="btn-group" role="group">
+   <button type="button" class="btn btn-info btn-lg" ><a href="homeLogado.html">Principal</a></button>
   </div>
   <div class="btn-group" role="group">
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Criar Post</button>
   </div>
-     <div class="btn-group" role="group">
+   <div class="btn-group" role="group">
    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="seusPosts.html">
    Seus Posts</a></button>
   </div>
-  <div class="btn-group" role="group">
+  <div class="btn-group" role="group"> -->
 
    <!-- aqui tem q passar o id do usuario e dai la no modal buscar os posts e mostrar, eu n faria, eu faria uma pagina e carregaria cada post
    em um modal, mas como faz aqui faz em um pagina separado, então vou mostrar e dai vocês tentam ai  -->
-   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="destaques.html">
+  <!--  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="destaques.html">
    Destaques</a></button>
 
 
-
   </div>
+  <div class="btn-group" role="group">
+ <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="sair.php">Sair</a></button>
+  </div>
+</div>
+
+ -->
+ <div class="btn-group btn-group-justified"  class="menu" role="group" id="menu" aria-label="...">
+ <div class="btn-group" role="group">
+ <!--   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="homeLogado.html"> -->
+ <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="destaques.html">Principal</a></button>
+  </div>
+  <div class="btn-group" role="group">
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_post">Criar Post</button>
+  </div>
+    <!--  <div class="btn-group" role="group"> -->
+ <!--   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="seusPosts.html">
+   Seus Posts</a></button> -->
+ <!--  </div>
+  <div class="btn-group" role="group"> -->
+
+   <!-- aqui tem q passar o id do usuario e dai la no modal buscar os posts e mostrar, eu n faria, eu faria uma pagina e carregaria cada post
+   em um modal, mas como faz aqui faz em um pagina separado, então vou mostrar e dai vocês tentam ai  -->
+  <!--  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="destaques.html">
+   Destaques</a></button> -->
+
+<!-- 
+
+  </div> -->
   <div class="btn-group" role="group">
    <button type="button" class="btn btn-info btn-lg" ><a href="sair.php">Sair</a>  </button>
   </div>
 </div>
-
-
 
 
 
@@ -156,53 +172,65 @@
 
 
   <!-- Modal Criar Post -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Crie seu post</h4>
-        </div>
-        <div class="modal-body">
-         <!--  <p>Crie seu post</p> -->
-
-          <div class="text-center">
-		<form action="conecta.php">
-			<img src="quadrado.png" class="rounded" alt="..."  width="300" height="300">
-          </div>
-          <label>Titulo: <input type="text" class="form-control" name="titulo"  size="140" placeholder="Titulo" aria-describedby="sizing-addon1"></label>
-          <!-- Split button -->
-
-          <label>Descrição:<!-- <input type="text-field" name="descricao"   style="WIDTH: 228px;size=32; HEIGHT: 98px" > --></label>          <input type="text" class="form-control" placeholder="Descrição" name="descricao" aria-describedby="sizing-addon1">
-              <br>
-              <div id="tag">
-	              <button type="button" value="1" class="btn btn-outline-success">Arte</button>
-	              <button type="button"  value="2"  class="btn btn-outline-success">Moda</button>
-	              <button type="button" value="3" class="btn btn-outline-success">Fotografia</button>
-	              <button type="button"  value="4" class="btn btn-outline-success">Novidade</button>
-	              <button type="button" value="5" class="btn btn-outline-success">Musica</button>
-	              <button type="button"  value="6"  class="btn btn-outline-success">Gastronomia</button>
-              </div>
-              <br><br>
-          	<label>Selecione uma Imagem: <input type="file" name="img"></label><br><br>
-            <button type="submit" value="entrar" id="entrar" name="Entrar">Criar</button><br>
+ <div class="modal fade" id="modal_post" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form id="postForm"   action="create.php"> data-url="<?php echo $url; ?>">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Criar Post
+                    </h4>
+                </div>
+                <!-- modal body -->
+                <div class="modal-body">
+                    
+                    <!-- campos do form -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-1 col-lg-2"></div>
+                        <div class="col-xs-12 col-md-10 col-lg-8">
+                            <div class="form-group">
+                                <input type="hidden" id="postId" value="<?php echo $postId; ?>">
+                                <input type="hidden" id="autorId" value="<?php echo $autorId; ?>">
+                                <label>Titulo: <input type="text" class="form-control" name="titulo"  size="140" placeholder="Titulo" aria-describedby="sizing-addon1"></label>
+                                <label for="descricao" class="control-label">Descrição</label>
+                                <textarea id="descricao" class="form-control" rows="3" placeholder="Ex: Inspire-se crie seu post agora"></textarea>
+                            </div>
+                             <div class="form-group" id="tag">
+                              <label><input type="radio"  id="tag" value="1" name="tag">Moda</label>
+                       <label>      <input type="radio"  id="tag"  value="2" name="tag">Arte</label>
+                          <label> <input type="radio" value="3" id="tag" name="tag">Música</label>
 
 
-
-
-
+                             <div>
+                            <div class="form-group" id="postImagem">
+                                <div class="<?php echo $classe; ?> create">
+                                    <label for="imagem">Carregar imagem</label>
+                                    <input type="file" id="imagem" class="form-control">
+                                    <p class="help-block">Faça upload de imagens .PNG ou .JPG com tamanho de 2mb no maximo!</p>
+                                </div>
+                            </div>
+                          
+                        </div>
+                        <div class="col-xs-12 col-md-1 col-lg-2"></div>
+                    </div>
+                    <!--campos do form[fim] -->
+                </div>
+                <!-- modal footer -->
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                <button type="reset" class="btn btn-default">Limpar</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar</button>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
-        </div>
-       
-        <div class="modal-footer">      
-    	<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button> -->
-        </div>
-      </div>
-      
     </div>
-  </div>
 </div>
 
 
@@ -292,7 +320,7 @@
          
              
                 <!-- <input type="submit" value="entrar" id="entrar" name="Enviar"><br> -->
-                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=""><a href="sair.php">Sair</a></button>
+                 <button type="button" class="btn btn-default" data-dismiss="modal"><a href="sair.php"></a>Sair</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
             
           
@@ -315,8 +343,31 @@
 
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   <h1 class="w3-center">Revista de Art</h1>
-  <p class="w3-center" class="introducao"><em><b>Divulgue seu trabalho.<br> Inspire novas ideias<br>Colabore com a revista</b></em></p><br>
+  <p class="w3-center" class="introducao"><em><b>A criatividade inspira, colabore  e ajude a desenvolver a  arte.<br> Inspire, pense e  crie novas ideias<br> Trabalhe com o que você gosta e seja mais feliz!!</b></em></p><br>
 
+<h2  class="w3-center" class="introducao"> Destaques</h2>
+
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <!-- <button class="btn btn-default" type="button">Goias!</button> -->
+      </span>
+     <!--  <input type="text" class="form-control" placeholder="Search for..."> -->
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Nome, tag...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Buscar!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+<br><br>
 
 
 
