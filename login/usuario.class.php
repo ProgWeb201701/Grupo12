@@ -1,17 +1,14 @@
 <?php 
 
-
-class usuario
+require_once("config.php");
+class usuario  extends Banco
 
 {
-
     public $nome;
     public $nomeUsuario;
     public $senha;
     public $email;
     public $idUsuario;
-
-
 
     function __construct($nome, $nomeUsuario, $senha, $email, $idUsuario) {
         $this->nome = $nome;
@@ -20,8 +17,6 @@ class usuario
         $this->email = $email;
         $this->idUsuario = $idUsuario;
     }
-
-
 
     function getNome() {
         return $this->nome;
@@ -63,10 +58,13 @@ class usuario
         $this->idUsuario = $idUsuario;
     }
 
-
-
-
-    
+  public function saveUser($nome,$nomeUsuario,$email,$senha){
+      $sql = "INSERT INTO usuario (nome,nomUsuario,senha,email)
+ VALUES ('$nome','$nomUsuario','$senha','$email')";
+     
+      
+  }
+  
 
     
 }

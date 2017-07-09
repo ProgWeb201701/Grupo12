@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 27-Jun-2017 às 22:52
+-- Data de Criação: 09-Jul-2017 às 12:53
 -- Versão do servidor: 5.5.28
 -- versão do PHP: 5.3.19
 
@@ -32,23 +32,25 @@ CREATE TABLE IF NOT EXISTS `post` (
   `idPost` int(11) NOT NULL AUTO_INCREMENT,
   `nomePost` varchar(30) NOT NULL,
   `descricao` text,
-  `idUsuario` int(11) NOT NULL,
-  `CaminhoImagem` varchar(50) NOT NULL,
+  `idUsuario` int(10) DEFAULT NULL,
+  `CaminhoImagem` varchar(200) NOT NULL,
   `idTag` int(11) NOT NULL,
   PRIMARY KEY (`idPost`),
   UNIQUE KEY `nomePost` (`nomePost`),
-  UNIQUE KEY `idUsuario` (`idUsuario`),
-  KEY `fk_tag` (`idTag`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
+  KEY `fk_tag` (`idTag`),
+  KEY `idUsuario` (`idUsuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=101 ;
 
 --
 -- Extraindo dados da tabela `post`
 --
 
 INSERT INTO `post` (`idPost`, `nomePost`, `descricao`, `idUsuario`, `CaminhoImagem`, `idTag`) VALUES
-(1, 'Inspirações no Dia-a-dia', 'Criatividade não é um botãozinho no cérebro que basta apertar o play para que ele funcione. Muito menos é um dom, como se fosse uma escolha divina. Para sermos habilidosos em qualquer área, precisamos de treinamento e muita observação. É como jogar futebol, ninguém começa fazendo gol de trivela. Tem que tomar muita pancada na canela, jogar todo o dia embaixo de chuva ou sol, levar muitos dríbles entre as pernas e chutar várias bolas para fora, para só aí, conseguir ser habilidoso como desejávamos no começo.', 1, 'C:UsersamandaDesktopPastasAmanda', 5),
 (2, 'Desenho Realista', 'se trata de Pedro Lopes, de 18 anos, lá de Passo Fundo, no Rio Grande do Sul. Usando de um realismo que impressiona em suas ilustrações, ele tem postado um desenho melhor que o outro em seu perfil no Instagram.“Comecei [a desenhar] desde criança, sempre desenhando coisas, animais e artistas que eu gostava na época. Em 2012, postei um desenho no Facebook, uma releitura de um olho que eu tinha visto online, ou seja, minha reputação como desenhista começou daí”, conta Pedro à CAPRICHO. “Fui motivado por amigos e familiares, então comecei a desenhar as pessoas das minhas redes sociais. Foi aí que descobri que levava jeito pra desenhar.”', 2, 'Em algum lugar na nuvem', 5),
-(42, '', '', 3, '', 2);
+(8, 'Bom dia', '11111111111111111111111111', 5, 'blablabla', 1),
+(11, 'Boa Tarde', 'RED', 6, 'mmmmmmmmmmmmmmmmmmmmmmmmm', 3),
+(12, 'Boa Noite', 'BLUE', 7, 'lllllllllllllllllllllllllllllllllm', 2),
+(100, 'bbbbbb', 'cccccc', 1, 'C:/algo>ai', 1);
 
 -- --------------------------------------------------------
 
@@ -68,10 +70,10 @@ CREATE TABLE IF NOT EXISTS `tagpost` (
 
 INSERT INTO `tagpost` (`idTag`, `nomTag`) VALUES
 (1, 'MODA'),
-(2, 'BELEZA'),
+(2, 'Desenho'),
 (3, 'ART'),
 (4, 'MUSICA'),
-(5, 'DESENHO'),
+(5, 'Arte Origami'),
 (6, 'ARTISTA'),
 (7, 'TENDENCIA'),
 (8, 'GASTRONOMIA'),
@@ -93,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `email` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idUsuario`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -112,9 +114,15 @@ INSERT INTO `usuario` (`nome`, `idUsuario`, `nomUsuario`, `senha`, `email`) VALU
 ('gato', 10, 'gato', '123', 'cat@gmail.com'),
 ('biscoito', 11, 'cookie', '123', 'cookie@gmail.com'),
 ('Wall-e', 19, 'wall-e', 'amanda', 'wall-e@gmail.com'),
-('Adriana Fagundes Lopes', 20, 'adrilopes', 'amandalopes', 'amandalopes'),
-('Adri', 22, 'ADRI1', '12345', '12345'),
-('', 23, '', '', '');
+('Bug da Silva', 26, 'bug', '12345', 'bug@bug.com'),
+('6b da silva', 28, '6b', '12345', '6bfaber@gmail.com'),
+('sebastiana', 29, 'se', 'se', 'se@gmail.com'),
+('sebastiana da silva chavier', 31, 'se', '12345', 'se@gmail.com'),
+('Laura Leticia', 32, 'LaLe', '12345', 'la@gmail.com'),
+('banana de pijama', 33, 'banana', '12345', 'banana@bah.com'),
+('bolachinha recheada', 34, 'bolachinha', '12345', 'bolachinha@gmail.com'),
+('amanda gobus lopes', 35, 'amanda', '1234', 'gobus@gmail.com'),
+('Bergamota Pokan', 36, 'bpokan', '12345', 'pokan@gmail.com');
 
 --
 -- Constraints for dumped tables
@@ -124,8 +132,10 @@ INSERT INTO `usuario` (`nome`, `idUsuario`, `nomUsuario`, `senha`, `email`) VALU
 -- Limitadores para a tabela `post`
 --
 ALTER TABLE `post`
+  ADD CONSTRAINT `fk_idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`),
   ADD CONSTRAINT `fk_tag` FOREIGN KEY (`idTag`) REFERENCES `tagpost` (`idTag`),
-  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`),
+  ADD CONSTRAINT `post_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
